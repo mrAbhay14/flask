@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.name if user.name else "User" }}'s Transactions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        h1 {
+            color: #0077b6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #0077b6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        tr:hover {
+            background: #caf0f8;
+        }
+        .btn {
+            margin-top: 15px;
+            display: inline-block;
+            padding: 10px 15px;
+            background: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #023e8a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <form action="/transactions" method="POST"></form>
+    <div class="container">
+        <h1>📜 {{ user.name if user.name else "User" }}'s Transactions</h1>
+        <p>Phone: {{ user.phone }}</p>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Points</th>
+                <th>Action</th>
+            </tr>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>{{ transaction.points }}</td>
+                
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/view_users" class="btn">🔙 Back to Users</a>
+    </div>
+
+</body>
+</html>

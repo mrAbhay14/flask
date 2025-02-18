@@ -1,0 +1,22 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h2>Admin Panel</h2>
+    <form method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <label>Credits:</label>
+        <input type="number" name="credits" required>
+        <label>Action:</label>
+        <select name="action">
+            <option value="add">Add</option>
+            <option value="deduct">Deduct</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

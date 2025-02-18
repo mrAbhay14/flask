@@ -1,0 +1,24 @@
+<!-- templates/transactions.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+</head>
+<body>
+    <h2>Transaction History for {{ name }}</h2>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Date</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction[1] }}</td>
+            <td>{{ transaction[2] }}</td>
+            <td>{{ transaction[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
